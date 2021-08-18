@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using DG.Tweening;
 
 public class CurlingMovement : MonoBehaviour
 {
     public PlayerInput controls;
     private bool ifRotatePressed = false;
     private bool ifAddSpeedPressed = false;
+
+    [SerializeField] private GameObject brush;
     
     private Rigidbody m_Rigidbody;
     
@@ -17,6 +20,9 @@ public class CurlingMovement : MonoBehaviour
     [SerializeField] private float fowardSpeed = 10.0f;
     [SerializeField] private float decreaseSpeed = 0.01f;
     [SerializeField] private float brushAddSpeed = 0.02f;
+    [SerializeField] private float brushDuration = 0.05f;
+    [SerializeField] private Ease brushEase = Ease.Linear;
+    private Vector3 brushCurrentPosition = new Vector3(0,0,0);
     void Awake()
     {
         controls = new PlayerInput();
@@ -50,7 +56,14 @@ public class CurlingMovement : MonoBehaviour
 
         if(ifAddSpeedPressed){
             ifAddSpeedPressed = false;
-            if(fowardSpeed<=4.0f)fowardSpeed += brushAddSpeed;
+            if(fowardSpeed<=4.0f && !ifRotatePressed){
+                brushCurrentPosition = brush.transform.position;
+                DOTween.Sequence()
+                .Append(brush.transform.DOLocalMove(new Vector3(0.7f,0,1),brushDuration).SetEase(brushEase))
+                .Append(brush.transform.DOLocalMove(-new Vector3(0.7f,0,-1),brushDuration).SetEase(brushEase));
+                fowardSpeed += brushAddSpeed;
+
+            }
             Debug.Log("Add speed!");
         }
         if(fowardSpeed>=0.4f)fowardSpeed -= decreaseSpeed;
