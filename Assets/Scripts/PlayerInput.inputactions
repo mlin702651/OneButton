@@ -1,0 +1,64 @@
+{
+    "name": "PlayerInput",
+    "maps": [
+        {
+            "name": "Player",
+            "id": "b948c5ce-dc8b-4400-a7cc-b7900bf854fa",
+            "actions": [
+                {
+                    "name": "CurlingRotate",
+                    "type": "Button",
+                    "id": "53602a9d-c7f7-41e9-9e83-b406181f5eb6",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "BrushAddSpeed",
+                    "type": "Button",
+                    "id": "c59d3e08-8176-4530-b3c8-d80b7d46b0c1",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "cc5d9425-9217-4e62-a279-396f30ad0cfc",
+                    "path": "<Keyboard>/leftShift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keybiard",
+                    "action": "CurlingRotate",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ccffb5a7-f66b-479b-b636-9b2f5b47bb6a",
+                    "path": "<Keyboard>/rightShift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keybiard",
+                    "action": "BrushAddSpeed",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "Keybiard",
+            "bindingGroup": "Keybiard",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
+}
