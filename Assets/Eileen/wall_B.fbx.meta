@@ -1,9 +1,22 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream
 guid: 62bbe9d6dc918bf4ab01cb87cd46590d
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
   externalObjects: {}
+=======
+guid: 3931709f6817c48bab439c2b6d6b3eeb
+ModelImporter:
+  serializedVersion: 19301
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wall_B_mt
+    second: {fileID: 2100000, guid: f69d677c0deea4614bbb6d79a753baab, type: 2}
+>>>>>>> Stashed changes
   materials:
     materialImportMode: 1
     materialName: 0
