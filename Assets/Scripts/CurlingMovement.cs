@@ -7,6 +7,9 @@ using DG.Tweening;
 public class CurlingMovement : MonoBehaviour
 {
     public PlayerInput controls;
+    private Vector3 StartPoint = new Vector3(0,0,0);
+    private Vector3 StartRotation = new Vector3(0,0,0);
+    private float StartSpeed = 0f;
     private bool ifRotatePressed = false;
     private bool ifAddSpeedPressed = false;
 
@@ -43,7 +46,9 @@ public class CurlingMovement : MonoBehaviour
     void Start()
     {
         m_Rigidbody = GetComponent<Rigidbody>();
-        
+        StartPoint = transform.position;
+        StartSpeed = fowardSpeed;
+        StartRotation = transform.eulerAngles;
     }
 
     // Update is called once per frame
@@ -68,8 +73,13 @@ public class CurlingMovement : MonoBehaviour
         }
         if(fowardSpeed>=0.4f)fowardSpeed -= decreaseSpeed;
         else {
+
             Debug.Log("Restart!");
+            transform.position = StartPoint;
+            fowardSpeed = StartSpeed;
+            transform.eulerAngles = StartRotation;
         }
+
         
     }
     void StartRotate(){
