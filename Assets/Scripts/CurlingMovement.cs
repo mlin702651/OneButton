@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 using DG.Tweening;
 
 public class CurlingMovement : MonoBehaviour
@@ -30,6 +31,8 @@ public class CurlingMovement : MonoBehaviour
     [SerializeField] private Ease brushEase = Ease.Linear;
     private Vector3 brushCurrentPosition = new Vector3(0,0,0);
     private Vector3 newCurlingDirection = new Vector3(0,0,0);
+
+    [SerializeField]private Slider speedSlider;
     void Awake()
     {
         controls = new PlayerInput();
@@ -37,6 +40,8 @@ public class CurlingMovement : MonoBehaviour
         controls.Player.CurlingRotate.canceled += ctx => EndRotate();
 
         controls.Player.BrushAddSpeed.performed += ctx => StartAddSpeed();
+
+        
     }
     
     private void OnEnable(){
@@ -65,7 +70,8 @@ public class CurlingMovement : MonoBehaviour
             curling.transform.Rotate(0,rotateSpeed*Time.deltaTime,0);
         }
         else if(ifRotatePressed&&!curlingRotateclockwise)curling.transform.Rotate(0,-rotateSpeed*Time.deltaTime,0);
-        else if(curlingState==0) m_Rigidbody.velocity = newCurlingDirection * fowardSpeed;
+        
+        if(curlingState==0) m_Rigidbody.velocity = newCurlingDirection * fowardSpeed;
         else if(curlingState==1) m_Rigidbody.velocity = newCurlingDirection * fowardSpeed * 0.3f;
         else if(curlingState==2) m_Rigidbody.velocity = newCurlingDirection * fowardSpeed * 1.3f;
         else if(curlingState==3) m_Rigidbody.velocity = newCurlingDirection * fowardSpeed * 0.1f;
@@ -85,11 +91,15 @@ public class CurlingMovement : MonoBehaviour
                 // .Append(brush.transform.DOLocalMove(new Vector3(0.7f,0,1),brushDuration).SetEase(brushEase))
                 // .Append(brush.transform.DOLocalMove(-new Vector3(0.7f,0,-1),brushDuration).SetEase(brushEase));
                 fowardSpeed += brushAddSpeed;
+                speedSlider.value = fowardSpeed;
 
             }
             Debug.Log("Add speed!");
         }
-        if(fowardSpeed>=0.4f)fowardSpeed -= decreaseSpeed;
+        if(fowardSpeed>=0.4f){
+            fowardSpeed -= decreaseSpeed;
+            speedSlider.value = fowardSpeed;
+        }
         else {
 
             Debug.Log("Restart!");
