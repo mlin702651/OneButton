@@ -42,7 +42,7 @@ Material:
     - Vector1_57017444: 0.1
     - Vector1_6F91B9CA: 0.1
     - Vector1_78A80F66: 1
-    - Vector1_81EC14CA: 0.85
+    - Vector1_81EC14CA: 1.17
     - Vector1_E57ABD6B: 1.84
     m_Colors:
     - Color_84CF6C67: {r: 0.8352941, g: 0.98311263, b: 1, a: 1}
