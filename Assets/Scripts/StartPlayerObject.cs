@@ -11,7 +11,7 @@ public class StartPlayerObject : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField] private GameObject curling;
     [SerializeField] private GameObject pole;
-    [SerializeField] private Ease poleEase = Ease.Linear;
+    //[SerializeField] private Ease poleEase = Ease.Linear;
     [SerializeField] private Slider Player1Slider;
     [SerializeField] private Slider Player2Slider;
     [SerializeField] private RectTransform buttonA;

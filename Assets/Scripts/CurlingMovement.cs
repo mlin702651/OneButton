@@ -28,7 +28,7 @@ public class CurlingMovement : MonoBehaviour
     [SerializeField] private float decreaseSpeed = 0.01f;
     [SerializeField] private float brushAddSpeed = 0.02f;
     [SerializeField] private float brushDuration = 0.05f;
-    [SerializeField] private Ease brushEase = Ease.Linear;
+    //[SerializeField] private Ease brushEase = Ease.Linear;
     private Vector3 brushCurrentPosition = new Vector3(0,0,0);
     private Vector3 newCurlingDirection = new Vector3(0,0,0);
 
