@@ -1,22 +1,9 @@
 fileFormatVersion: 2
-<<<<<<< Updated upstream
-guid: 4b609b589bfdf494bbc96133fe344d41
-ModelImporter:
-  serializedVersion: 19301
-  internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: pole_mt
-    second: {fileID: 2100000, guid: 063a83b4daceb491bbef8ab7d18d3e84, type: 2}
-=======
-guid: 81bf13e3547c7b04e81b580384ce3e89
+guid: c6feaaf7c1465c24e93e30ff8863a643
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
   externalObjects: {}
->>>>>>> Stashed changes
   materials:
     materialImportMode: 1
     materialName: 0
