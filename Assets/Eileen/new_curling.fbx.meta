@@ -3,7 +3,12 @@ guid: 70d1abaf7aeb34fe0baad8d919f18776
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: curling_mt
+    second: {fileID: 2100000, guid: e10d632e5d76def4887de9a733b785d9, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
