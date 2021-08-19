@@ -26,7 +26,7 @@
                 {
                     "name": "",
                     "id": "cc5d9425-9217-4e62-a279-396f30ad0cfc",
-                    "path": "<Keyboard>/z",
+                    "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keybiard",
@@ -37,7 +37,7 @@
                 {
                     "name": "",
                     "id": "ccffb5a7-f66b-479b-b636-9b2f5b47bb6a",
-                    "path": "<Keyboard>/slash",
+                    "path": "<Keyboard>/l",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keybiard",
