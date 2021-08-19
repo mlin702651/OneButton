@@ -8,6 +8,7 @@ public class CurlingMovement : MonoBehaviour
 {
     public PlayerInput controls;
     private int curlingState = 0;//0:normal 1:sand 2:water 3:disable
+    private bool curlingRotateclockwise = true;//true順時針 false逆時針
     private Vector3 StartPoint = new Vector3(0,0,0);
     private Vector3 StartRotation = new Vector3(0,0,0);
     private float StartSpeed = 0f;
@@ -59,10 +60,11 @@ public class CurlingMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(ifRotatePressed){
+        if(ifRotatePressed&&curlingRotateclockwise){
             //transform.Rotate(0,rotateSpeed*Time.deltaTime,0);
             curling.transform.Rotate(0,rotateSpeed*Time.deltaTime,0);
         }
+        else if(ifRotatePressed&&!curlingRotateclockwise)curling.transform.Rotate(0,-rotateSpeed*Time.deltaTime,0);
         else if(curlingState==0) m_Rigidbody.velocity = newCurlingDirection * fowardSpeed;
         else if(curlingState==1) m_Rigidbody.velocity = newCurlingDirection * fowardSpeed * 0.3f;
         else if(curlingState==2) m_Rigidbody.velocity = newCurlingDirection * fowardSpeed * 1.3f;
@@ -104,6 +106,7 @@ public class CurlingMovement : MonoBehaviour
     void StartRotate(){
         Debug.Log("Start rotate!");
         ifRotatePressed = true;
+        curlingRotateclockwise = !curlingRotateclockwise;
     }
     void EndRotate(){
         Debug.Log("Stop rotate!");
