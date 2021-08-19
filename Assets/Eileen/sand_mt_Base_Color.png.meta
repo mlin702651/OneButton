@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Eileen/sand_mt_Base_Color.png.meta
 guid: bb068f7cd63654055832610b9bd6a29a
+=======
+guid: c962381e0741f7643b823fd09476aa18
+>>>>>>> b90e3551928c8c91f3b749695fed1b58db9b5333:Assets/Eileen/speeddot.png.meta
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
