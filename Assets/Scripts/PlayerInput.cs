@@ -39,7 +39,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""cc5d9425-9217-4e62-a279-396f30ad0cfc"",
-                    ""path"": ""<Keyboard>/leftShift"",
+                    ""path"": ""<Keyboard>/z"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keybiard"",
@@ -50,7 +50,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""ccffb5a7-f66b-479b-b636-9b2f5b47bb6a"",
-                    ""path"": ""<Keyboard>/rightShift"",
+                    ""path"": ""<Keyboard>/slash"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keybiard"",
