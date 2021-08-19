@@ -1,14 +1,9 @@
 fileFormatVersion: 2
-guid: 9dc323f52c90b434caf7157831d334f5
+guid: d5beacd6a51de4e8ebe4a419aac68b09
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: curling_mt
-    second: {fileID: 2100000, guid: e10d632e5d76def4887de9a733b785d9, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 1
     materialName: 0
