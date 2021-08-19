@@ -20,12 +20,16 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - Texture2D_3A0CC993:
+        m_Texture: {fileID: 8400000, guid: 962d8141443395746951aa218942eb48, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - Texture2D_6FAC627B:
         m_Texture: {fileID: 2800000, guid: 6a02a539794dd914cb2f97b1cdf2006a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_E9BC4804:
-        m_Texture: {fileID: 2800000, guid: 1fad75050a3b06f46afe04534954e8b9, type: 3}
+        m_Texture: {fileID: 2800000, guid: a5b32f47cff82e34396293ab126cbee4, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SampleTexture2DLOD_F680C3AF_Texture_1:
@@ -33,14 +37,14 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_4A95FCA2: 0.1
-    - Vector1_5670E53C: 0.87
+    - Vector1_4A95FCA2: 0.15
+    - Vector1_5670E53C: 1.8
     - Vector1_57017444: 0.1
     - Vector1_6F91B9CA: 0.1
     - Vector1_78A80F66: 1
-    - Vector1_81EC14CA: 0.03
-    - Vector1_E57ABD6B: 1.85
+    - Vector1_81EC14CA: 0.28
+    - Vector1_E57ABD6B: 1.84
     m_Colors:
-    - Color_84CF6C67: {r: 0.9386792, g: 0.9980837, b: 1, a: 1}
+    - Color_84CF6C67: {r: 0.8349056, g: 0.9225482, b: 1, a: 1}
     - Color_989A99B1: {r: 0.097899616, g: 0.26432192, b: 0.3773585, a: 0}
     - Vector2_B634C8AC: {r: 1, g: 1, b: 0, a: 0}
