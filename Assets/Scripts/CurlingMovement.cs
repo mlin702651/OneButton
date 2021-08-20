@@ -47,6 +47,8 @@ public class CurlingMovement : MonoBehaviour
     private float countDownTimer = 4;
     private bool isStart = false;
 
+    [SerializeField]private GameObject goalEffect;
+
     //music
     [SerializeField]public AudioSource bgmSource;
     [SerializeField]public AudioSource sandSource;
@@ -93,9 +95,9 @@ public class CurlingMovement : MonoBehaviour
         
         countDownTimer -= Time.deltaTime;
         int countDownSecond = Mathf.FloorToInt(countDownTimer);
-        countDownText.text = countDownSecond.ToString("0");
+        if(!isStart) countDownText.text = countDownSecond.ToString("0");
         if(countDownSecond==0) countDownText.text = "START";
-        if(countDownTimer<=0){
+        if(countDownTimer<=0&&!isStart){
             isStart = true;
             countDownCanvas.SetActive(false);
         }
@@ -192,6 +194,14 @@ public class CurlingMovement : MonoBehaviour
         else if(other.tag=="WetFloor"){
             Debug.Log("EnterWetFloor");
             //curlingState = 2;
+        }
+
+        if(other.tag =="goal"){
+            Debug.Log("Goal!!");
+            goalEffect.SetActive(true);
+            countDownCanvas.SetActive(true);
+            countDownText.text = "Victory!";
+
         }
     }
 
