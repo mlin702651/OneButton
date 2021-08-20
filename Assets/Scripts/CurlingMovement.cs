@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
+
 
 public class CurlingMovement : MonoBehaviour
 {
@@ -53,6 +55,9 @@ public class CurlingMovement : MonoBehaviour
     [SerializeField]public AudioSource bgmSource;
     [SerializeField]public AudioSource sandSource;
     [SerializeField]public AudioSource brushSource;
+
+    private float victoryTimer = 0;
+    private bool isVictory = false;
     void Awake()
     {
         controls = new PlayerInput();
@@ -92,7 +97,8 @@ public class CurlingMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(isVictory) victoryTimer+=Time.deltaTime;
+        if(victoryTimer>=3) SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
         countDownTimer -= Time.deltaTime;
         int countDownSecond = Mathf.FloorToInt(countDownTimer);
         if(!isStart) countDownText.text = countDownSecond.ToString("0");
@@ -201,6 +207,7 @@ public class CurlingMovement : MonoBehaviour
             goalEffect.SetActive(true);
             countDownCanvas.SetActive(true);
             countDownText.text = "Victory!";
+            isVictory = true;
 
         }
     }
@@ -231,6 +238,9 @@ public class CurlingMovement : MonoBehaviour
     }
 
     private void Restart(){
+        isStart = false;
+        countDownTimer = 4;
+        countDownCanvas.SetActive(true);
         transform.position = StartPoint;
         fowardSpeed = StartSpeed;
         curlingState=0;
