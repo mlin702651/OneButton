@@ -1,9 +1,54 @@
 fileFormatVersion: 2
-guid: a8f166750fe0f4f4f967a77bbf4aba4e
+guid: c4ee364ccb221e346b6ded2fa101f0ae
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: chimney_1
+    second: {fileID: 2100000, guid: 555e5630f077a804b8e38e3ce3eb323e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: chimney_2
+    second: {fileID: 2100000, guid: 0f1100f6d9c693e4e82e1e2d62cfa29c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: house
+    second: {fileID: 2100000, guid: 91afbc8a3c48591488a67c64935e237e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mailbox_1
+    second: {fileID: 2100000, guid: d7020880eea7a6244b508dd1a0884b67, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: roof_1
+    second: {fileID: 2100000, guid: 4357562874878cb4d9d7786c1f26d8a6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tree_bottom
+    second: {fileID: 2100000, guid: 5c3b461af4e552b49a882f9fb78a152c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tree_middle
+    second: {fileID: 2100000, guid: a4ca9091624555f4ea2a5f8f655ac7da, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tree_top
+    second: {fileID: 2100000, guid: 823b9e082975ee948ab9eea5bb8f1dec, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: trunk
+    second: {fileID: 2100000, guid: 2c7b165fbfb4db243ab7cfd8cdfe535f, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

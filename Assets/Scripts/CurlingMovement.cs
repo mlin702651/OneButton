@@ -40,6 +40,13 @@ public class CurlingMovement : MonoBehaviour
     private float originalTimer;
 
     [SerializeField] private GameObject curlingArrow;
+
+    [SerializeField] private GameObject countDownCanvas;
+    [SerializeField] private Text countDownText;
+    private float countDownTimer = 4;
+    private bool isStart = false;
+
+
     void Awake()
     {
         controls = new PlayerInput();
@@ -76,6 +83,16 @@ public class CurlingMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+        countDownTimer -= Time.deltaTime;
+        int countDownSecond = Mathf.FloorToInt(countDownTimer);
+        countDownText.text = countDownSecond.ToString("0");
+        if(countDownSecond==0) countDownText.text = "START";
+        if(countDownTimer<=0){
+            isStart = true;
+            countDownCanvas.SetActive(false);
+        }
+        if(!isStart) return;
         if(ifRotatePressed&&curlingRotateclockwise){
             //transform.Rotate(0,rotateSpeed*Time.deltaTime,0);
             curling.transform.Rotate(0,rotateSpeed*Time.deltaTime,0);
