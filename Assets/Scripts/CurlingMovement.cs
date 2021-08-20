@@ -131,7 +131,7 @@ public class CurlingMovement : MonoBehaviour
             }
             Debug.Log("Add speed!");
         }
-        if(fowardSpeed>=maxSpeed){
+        if(fowardSpeed<=maxSpeed){
             fowardSpeed -= decreaseSpeed;
             speedSlider.value = fowardSpeed;
         } 
