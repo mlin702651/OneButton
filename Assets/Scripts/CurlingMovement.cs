@@ -38,6 +38,8 @@ public class CurlingMovement : MonoBehaviour
     [SerializeField]private Text timerText;
     [SerializeField]private float timer = 60;
     private float originalTimer;
+
+    [SerializeField] private GameObject curlingArrow;
     void Awake()
     {
         controls = new PlayerInput();
@@ -68,6 +70,7 @@ public class CurlingMovement : MonoBehaviour
         StartPoleRotation = brush.transform.eulerAngles;
         StartCurlingRotation = curling.transform.eulerAngles;
         originalTimer = timer;
+        curlingArrow.SetActive(false);
     }
 
     // Update is called once per frame
@@ -76,6 +79,7 @@ public class CurlingMovement : MonoBehaviour
         if(ifRotatePressed&&curlingRotateclockwise){
             //transform.Rotate(0,rotateSpeed*Time.deltaTime,0);
             curling.transform.Rotate(0,rotateSpeed*Time.deltaTime,0);
+            
         }
         else if(ifRotatePressed&&!curlingRotateclockwise)curling.transform.Rotate(0,-rotateSpeed*Time.deltaTime,0);
         
@@ -133,6 +137,7 @@ public class CurlingMovement : MonoBehaviour
         Debug.Log("Start rotate!");
         ifRotatePressed = true;
         curlingRotateclockwise = !curlingRotateclockwise;
+        curlingArrow.SetActive(true);
     }
     void EndRotate(){
         Debug.Log("Stop rotate!");
@@ -140,6 +145,7 @@ public class CurlingMovement : MonoBehaviour
         newCurlingDirection = curling.transform.forward;
         brush.transform.position = transform.position + curling.transform.forward;
         brush.transform.eulerAngles = curling.transform.eulerAngles;
+        curlingArrow.SetActive(false);
     }
 
     void StartAddSpeed(){
