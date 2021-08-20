@@ -27,6 +27,7 @@ public class CurlingMovement : MonoBehaviour
     
     [SerializeField] private float rotateSpeed = 5.0f;
     [SerializeField] private float fowardSpeed = 10.0f;
+    [SerializeField]private float maxSpeed = 6.0f;
     [SerializeField] private float decreaseSpeed = 0.01f;
     [SerializeField] private float brushAddSpeed = 0.02f;
     [SerializeField] private float brushDuration = 0.05f;
@@ -130,7 +131,7 @@ public class CurlingMovement : MonoBehaviour
             }
             Debug.Log("Add speed!");
         }
-        if(fowardSpeed>=0.4f){
+        if(fowardSpeed>=maxSpeed){
             fowardSpeed -= decreaseSpeed;
             speedSlider.value = fowardSpeed;
         } 

@@ -84,7 +84,7 @@ public class StartPlayerObject : MonoBehaviour
         }
         if(ifLPress){
             ifLPress = false;
-            Player2Slider.value-= 0.15f;
+            Player2Slider.value-= 0.3f;
         }
 
         if(Player1Slider.value<=0&&Player2Slider.value<=0) {
