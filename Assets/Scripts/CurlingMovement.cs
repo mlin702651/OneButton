@@ -27,6 +27,7 @@ public class CurlingMovement : MonoBehaviour
     
     [SerializeField] private float rotateSpeed = 5.0f;
     [SerializeField] private float fowardSpeed = 10.0f;
+    [SerializeField]private float maxSpeed = 6.0f;
     [SerializeField] private float decreaseSpeed = 0.01f;
     [SerializeField] private float brushAddSpeed = 0.02f;
     [SerializeField] private float brushDuration = 0.05f;
@@ -46,7 +47,9 @@ public class CurlingMovement : MonoBehaviour
     private float countDownTimer = 4;
     private bool isStart = false;
 
-
+    //music
+    [SerializeField]public AudioSource bgmSource;
+    [SerializeField]public AudioSource sandSource;
     void Awake()
     {
         controls = new PlayerInput();
@@ -78,6 +81,9 @@ public class CurlingMovement : MonoBehaviour
         StartCurlingRotation = curling.transform.eulerAngles;
         originalTimer = timer;
         curlingArrow.SetActive(false);
+
+        //FindObjectOfType<AudioManager>().Play("bgm");
+        bgmSource.Play();
     }
 
     // Update is called once per frame
@@ -125,7 +131,7 @@ public class CurlingMovement : MonoBehaviour
             }
             Debug.Log("Add speed!");
         }
-        if(fowardSpeed>=0.4f){
+        if(fowardSpeed>=maxSpeed){
             fowardSpeed -= decreaseSpeed;
             speedSlider.value = fowardSpeed;
         } 
@@ -188,19 +194,25 @@ public class CurlingMovement : MonoBehaviour
         if(other.tag=="NormalFloor"){
             Debug.Log("stay normal!");
             curlingState = 0;
+            sandSource.Stop();
         }
         else if(other.tag=="SandFloor"){
             Debug.Log("stay sand!");
             curlingState = 1;
+            sandSource.Play();
         }
         else if(other.tag=="WetFloor"){
             Debug.Log("stay wet!");
             curlingState = 2;
+            sandSource.Stop();
+
         }
     }
     private void OnTriggerExit(Collider other) {
         Debug.Log("Enter disable Area!");
         curlingState=3;
+            sandSource.Stop();
+
     }
 
     private void Restart(){
