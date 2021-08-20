@@ -12,6 +12,8 @@ public class CurlingMovement : MonoBehaviour
     private bool curlingRotateclockwise = true;//true順時針 false逆時針
     private Vector3 StartPoint = new Vector3(0,0,0);
     private Vector3 StartRotation = new Vector3(0,0,0);
+    private Vector3 StartPoleRotation = new Vector3(0,0,0);
+    private Vector3 StartCurlingRotation = new Vector3(0,0,0);
     private float StartSpeed = 0f;
     private bool ifRotatePressed = false;
     private bool ifAddSpeedPressed = false;
@@ -62,7 +64,9 @@ public class CurlingMovement : MonoBehaviour
         StartPoint = transform.position;
         StartSpeed = fowardSpeed;
         //StartRotation = transform.eulerAngles;
-        StartRotation = curling.transform.eulerAngles;
+        StartRotation = transform.eulerAngles;
+        StartPoleRotation = brush.transform.eulerAngles;
+        StartCurlingRotation = curling.transform.eulerAngles;
         originalTimer = timer;
     }
 
@@ -179,8 +183,17 @@ public class CurlingMovement : MonoBehaviour
     private void Restart(){
         transform.position = StartPoint;
         fowardSpeed = StartSpeed;
+        curlingState=0;
+        newCurlingDirection = transform.forward;
+        //brush.transform.localEulerAngles = StartPoleRotation;
+        brush.transform.localEulerAngles = new Vector3(0,-180,0);
+        brush.transform.localPosition = new Vector3(-0.5f,0,1);
+        //curling.transform.localEulerAngles = StartCurlingRotation;
+        curling.transform.localEulerAngles = new Vector3(0,0,0);
+        curling.transform.localPosition = new Vector3(0,0,0);
         transform.eulerAngles = StartRotation;
         timer = originalTimer;
         timerText.color = new Color32(23,122,129,255);
+        
     }
 }
