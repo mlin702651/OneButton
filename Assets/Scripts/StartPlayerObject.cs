@@ -60,8 +60,8 @@ public class StartPlayerObject : MonoBehaviour
         sequence3.SetLoops(-1, LoopType.Restart);
 
         Sequence sequence4 = DOTween.Sequence();
-        sequence4.Append( buttonL.DOAnchorPosY(-340, 0.5f ).SetEase(ButtonLEase));
-        sequence4.Append( buttonL.DOAnchorPosY(-300, 0.5f ).SetEase(ButtonLEase));
+        sequence4.Append( buttonL.DOAnchorPosY(-340, 0.3f ).SetEase(ButtonLEase));
+        sequence4.Append( buttonL.DOAnchorPosY(-300, 0.3f ).SetEase(ButtonLEase));
         sequence4.SetLoops(-1, LoopType.Restart);
 
         Player1Slider.value = 1;
