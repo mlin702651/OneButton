@@ -11,7 +11,7 @@ public class StartPlayerObject : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField] private GameObject curling;
     [SerializeField] private GameObject pole;
-    //[SerializeField] private Ease poleEase = Ease.Linear;
+    [SerializeField] private Ease poleEase = Ease.Linear;
     [SerializeField] private Slider Player1Slider;
     [SerializeField] private Slider Player2Slider;
     [SerializeField] private RectTransform buttonA;
@@ -43,15 +43,15 @@ public class StartPlayerObject : MonoBehaviour
         sequence.Append( curling.transform.DORotate(new Vector3(0,10f,0), 0.1f ).SetEase(Ease.Linear) );
         sequence.SetLoops(-1, LoopType.Incremental);
 
-        // poleOriginPosition = pole.transform.position;
-        // Sequence sequence2 = DOTween.Sequence();
-        // sequence2.Append( pole.transform.DOMove(poleOriginPosition + new Vector3(2.5f,0,0), 0.5f ).SetEase(poleEase) );
-        // sequence2.Append( pole.transform.DOMove(poleOriginPosition, 0.5f ).SetEase(poleEase) );
-        // sequence2.SetLoops(-1, LoopType.Restart);
-
+        poleOriginPosition = pole.transform.position;
         Sequence sequence2 = DOTween.Sequence();
-        sequence2.Append( pole.transform.DORotate(new Vector3(0,-10f,0), 0.1f ).SetEase(Ease.Linear) );
-        sequence2.SetLoops(-1, LoopType.Incremental);
+        sequence2.Append( pole.transform.DOMove(poleOriginPosition + new Vector3(2.5f,0,0), 0.5f ).SetEase(poleEase) );
+        sequence2.Append( pole.transform.DOMove(poleOriginPosition, 0.5f ).SetEase(poleEase) );
+        sequence2.SetLoops(-1, LoopType.Restart);
+
+        // Sequence sequence2 = DOTween.Sequence();
+        // sequence2.Append( pole.transform.DORotate(new Vector3(0,-10f,0), 0.1f ).SetEase(Ease.Linear) );
+        // sequence2.SetLoops(-1, LoopType.Incremental);
 
         Sequence sequence3 = DOTween.Sequence();
         sequence3.Append( buttonA.DOAnchorPosY(-340, 0.5f ).SetEase(ButtonAEase) );
