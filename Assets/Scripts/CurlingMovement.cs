@@ -50,6 +50,7 @@ public class CurlingMovement : MonoBehaviour
     //music
     [SerializeField]public AudioSource bgmSource;
     [SerializeField]public AudioSource sandSource;
+    [SerializeField]public AudioSource brushSource;
     void Awake()
     {
         controls = new PlayerInput();
@@ -117,7 +118,7 @@ public class CurlingMovement : MonoBehaviour
 
         if(ifAddSpeedPressed){
             ifAddSpeedPressed = false;
-            if(fowardSpeed<=4.0f && !ifRotatePressed){
+            if(fowardSpeed<=maxSpeed && !ifRotatePressed){
                 brushCurrentPosition = brush.transform.position;
                 brush.GetComponentInChildren<brushMovement>().Brush(brushDuration);
                 // DOTween.Sequence()
@@ -127,11 +128,15 @@ public class CurlingMovement : MonoBehaviour
                 // .Append(brush.transform.DOLocalMove(-new Vector3(0.7f,0,-1),brushDuration).SetEase(brushEase));
                 fowardSpeed += brushAddSpeed;
                 speedSlider.value = fowardSpeed;
+                brushSource.volume  = brushSource.volume * 10;
+                brushSource.time = 1;
+                brushSource.Play();
 
             }
             Debug.Log("Add speed!");
         }
-        if(fowardSpeed<=maxSpeed){
+
+        if(fowardSpeed>=0){
             fowardSpeed -= decreaseSpeed;
             speedSlider.value = fowardSpeed;
         } 
