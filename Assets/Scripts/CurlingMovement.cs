@@ -28,11 +28,14 @@ public class CurlingMovement : MonoBehaviour
     [SerializeField] private float decreaseSpeed = 0.01f;
     [SerializeField] private float brushAddSpeed = 0.02f;
     [SerializeField] private float brushDuration = 0.05f;
-    [SerializeField] private Ease brushEase = Ease.Linear;
+    //[SerializeField] private Ease brushEase = Ease.Linear;
     private Vector3 brushCurrentPosition = new Vector3(0,0,0);
     private Vector3 newCurlingDirection = new Vector3(0,0,0);
 
     [SerializeField]private Slider speedSlider;
+    [SerializeField]private Text timerText;
+    [SerializeField]private float timer = 60;
+    private float originalTimer;
     void Awake()
     {
         controls = new PlayerInput();
@@ -60,6 +63,7 @@ public class CurlingMovement : MonoBehaviour
         StartSpeed = fowardSpeed;
         //StartRotation = transform.eulerAngles;
         StartRotation = curling.transform.eulerAngles;
+        originalTimer = timer;
     }
 
     // Update is called once per frame
@@ -99,17 +103,25 @@ public class CurlingMovement : MonoBehaviour
         if(fowardSpeed>=0.4f){
             fowardSpeed -= decreaseSpeed;
             speedSlider.value = fowardSpeed;
-        }
+        } 
         else {
-
             Debug.Log("Restart!");
-            transform.position = StartPoint;
-            fowardSpeed = StartSpeed;
-            transform.eulerAngles = StartRotation;
-            
+            Restart();
         }
 
-        
+        if(timer<=0){
+            Restart();
+        }
+
+        timer -= Time.deltaTime;
+        int minutes = Mathf.FloorToInt(timer / 60F);
+        int seconds = Mathf.FloorToInt(timer % 60F);
+        timerText.text = minutes.ToString ("00") + ":" + seconds.ToString ("00");
+
+        if(timer<=10){
+            timerText.color = new Color32(185,84,80,255);
+            //timerText.color = Color.red;
+        }
 
         
     }
@@ -162,5 +174,13 @@ public class CurlingMovement : MonoBehaviour
     private void OnTriggerExit(Collider other) {
         Debug.Log("Enter disable Area!");
         curlingState=3;
+    }
+
+    private void Restart(){
+        transform.position = StartPoint;
+        fowardSpeed = StartSpeed;
+        transform.eulerAngles = StartRotation;
+        timer = originalTimer;
+        timerText.color = new Color32(23,122,129,255);
     }
 }
