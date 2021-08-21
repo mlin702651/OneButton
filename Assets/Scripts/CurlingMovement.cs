@@ -256,4 +256,8 @@ public class CurlingMovement : MonoBehaviour
         timerText.color = new Color32(23,122,129,255);
         
     }
+    // //開一個速度給刷子痕跡控制顏色，但我不確定要開哪個
+    // public float getCurrentSpeed(){
+    //     return fowardSpeed;
+    // }
 }
